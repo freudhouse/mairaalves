@@ -104,10 +104,16 @@
       </div>
 
       <div class="option">
-        <strong>Write</strong><br>
-        You can leave something here. Or not.
-        <textarea placeholder="You don’t have to make sense."></textarea>
-      </div>
+  <strong>Write</strong><br>
+  You can leave something here. Or not.
+
+  <textarea id="userText" placeholder="You don’t have to make sense."></textarea>
+  <br>
+  <button class="button" onclick="saveText()">save</button>
+
+  <div id="savedText" style="margin-top:12px;"></div>
+</div>
+
 
       <a href="idle.html" class="button">back</a>
     </div>
@@ -137,6 +143,25 @@
       }, 100);
     }
   </script>
+<script>
+  const textarea = document.getElementById('userText');
+  const output = document.getElementById('savedText');
+
+  function saveText() {
+    const text = textarea.value;
+    localStorage.setItem('userNote', text);
+    displayText();
+  }
+
+  function displayText() {
+    const saved = localStorage.getItem('userNote');
+    if (saved) {
+      output.innerHTML = "<strong>Saved:</strong><br>" + saved.replace(/\n/g, "<br>");
+    }
+  }
+
+  displayText();
+</script>
 
 </body>
 </html>
