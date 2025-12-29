@@ -1,16 +1,142 @@
-body {
-  background: #f4f1ed;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  animation: backgroundShift 8s ease-in-out forwards;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>System Options</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-@keyframes backgroundShift {
-  from {
-    background: #f4f1ed;
-  }
-  to {
-    background: #efe6f2; /* pode mudar essa cor */
-  }
-}
+  <style>
+    body {
+      background: #f4f1ed;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      animation: backgroundShift 10s ease-in-out forwards;
+    }
 
+    @keyframes backgroundShift {
+      from { background: #f4f1ed; }
+      to   { background: #efe6f2; }
+    }
+
+    .window {
+      width: 440px;
+      margin: 100px auto;
+      background: #e6e6e6;
+      border: 1px solid #999;
+      box-shadow: 3px 3px 0 #bbb;
+    }
+
+    .titlebar {
+      background: #6f8fe8;
+      padding: 6px 8px;
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .content {
+      padding: 22px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .option {
+      margin: 18px 0;
+      padding: 12px;
+      background: #f2f2f2;
+      border: 1px solid #bdbdbd;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 6px 20px;
+      background: #e6e6e6;
+      border-top: 2px solid #fff;
+      border-left: 2px solid #fff;
+      border-bottom: 2px solid #7a7a7a;
+      border-right: 2px solid #7a7a7a;
+      text-decoration: none;
+      color: #000;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    textarea {
+      width: 100%;
+      height: 80px;
+      margin-top: 8px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      padding: 6px;
+      border: 1px solid #999;
+      resize: none;
+      background: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="window">
+    <div class="titlebar">
+      <span>System Options</span>
+      <span>□</span>
+    </div>
+
+    <div class="content">
+      You don’t need to do anything.<br>
+      But if something helps, you can choose.
+
+      <div class="option">
+        <strong>Listen</strong><br>
+        Soft background sound. No words.
+        <br>
+        <button class="button">play music</button>
+      </div>
+
+      <div class="option">
+        <strong>Play</strong><br>
+        A very simple game. No score. No time.
+        <br>
+        <button class="button">open game</button>
+      </div>
+
+      <div class="option">
+        <strong>Write</strong><br>
+        You can leave something here. Or not.
+        <textarea placeholder="You don’t have to make sense."></textarea>
+      </div>
+
+      <a href="idle.html" class="button">back</a>
+    </div>
+  </div>
+
+  <!-- GLITTER SUAVE -->
+  <script>
+    const glitterCount = 20;
+
+    for (let i = 0; i < glitterCount; i++) {
+      const g = document.createElement('div');
+      g.style.position = 'fixed';
+      g.style.top = Math.random() * -100 + 'px';
+      g.style.left = Math.random() * 100 + 'vw';
+      g.style.width = '3px';
+      g.style.height = '3px';
+      g.style.background = '#c9c2d8';
+      g.style.opacity = '0.6';
+      g.style.borderRadius = '50%';
+      g.style.pointerEvents = 'none';
+      g.style.transition = 'top 12s linear, opacity 12s';
+      document.body.appendChild(g);
+
+      setTimeout(() => {
+        g.style.top = '110vh';
+        g.style.opacity = '0';
+      }, 100);
+    }
+  </script>
+
+</body>
+</html>
